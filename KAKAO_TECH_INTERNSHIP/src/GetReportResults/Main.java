@@ -20,9 +20,7 @@ class Solution {
 
         reporterHashMap.forEach((s, strings) -> {
             System.out.println(s);
-            Arrays.stream(strings).forEach(s1 -> {
-                System.out.println("\t" + s1);
-            });
+            Arrays.stream(strings).forEach(s1 -> System.out.println("\t" + s1));
         });
         return reporterHashMap;
     }
