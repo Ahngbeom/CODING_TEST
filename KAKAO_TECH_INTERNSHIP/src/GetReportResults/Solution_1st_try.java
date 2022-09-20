@@ -1,10 +1,12 @@
 package GetReportResults;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
-class Solution {
+class Solution_1st_try extends Solution {
 
     public LinkedHashMap<String, String[]> reportersToHashMap(String[] id_list, String[] report) {
         LinkedHashMap<String, String[]> reporterHashMap = new LinkedHashMap<>();
@@ -60,32 +62,3 @@ class Solution {
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Solution solutionClass = new Solution();
-        solutionClass.solution(
-                new String[]{"muzi", "frodo", "apeach", "neo"},
-                new String[]{"muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"},
-                2);
-
-        solutionClass.solution(
-                new String[]{"muzi", "frodo", "apeach", "neo"},
-                new String[]{"muzi frodo", "muzi frodo", "apeach frodo", "apeach frodo", "frodo neo", "frodo neo"},
-                1);
-
-        solutionClass.solution(
-                new String[]{"muzi", "frodo", "apeach", "neo"},
-                new String[]{"muzi frodo", "apeach frodo", "apeach neo", "muzi neo"},
-                1);
-
-       solutionClass.solution(
-                new String[]{"con", "ryan"},
-                new String[]{"ryan con", "ryan con", "ryan con", "ryan con"},
-                3);
-
-        solutionClass.solution(
-                new String[]{"con", "ryan"},
-                new String[]{"con ryan"},
-                5);
-    }
-}

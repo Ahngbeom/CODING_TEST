@@ -76,7 +76,7 @@ class Solution {
             return totalSum;
         }
 
-//        public LinkedList<Integer> getPopQueue() {
+        //        public LinkedList<Integer> getPopQueue() {
 //            return popQueue;
 //        }
 //
@@ -92,7 +92,7 @@ class Solution {
         System.out.println("===================================================================");
     }
 
-    public Boolean popOnlyOneQueue(QueueData popQueue, QueueData insertQueue, int twoQueueTotalSum) {
+    public Boolean popOnlyOneQueue(QueueData popQueue, QueueData insertQueue, Long twoQueueTotalSum) {
         while (popQueue.getQueue().size() > 0) {
             popQueue.popAndInsert(insertQueue);
             if (popQueue.getTotalSum() == twoQueueTotalSum / 2) {
@@ -104,11 +104,11 @@ class Solution {
         return false;
     }
 
-    public Boolean insertFirstOneElementFromOtherQueue(QueueData popQueue, QueueData insertQueue, int twoQueueTotalSum) {
+    public Boolean insertFirstOneElementFromOtherQueue(QueueData popQueue, QueueData insertQueue, Long twoQueueTotalSum) {
         while (popQueue.getQueue().size() > 0) {
             popQueue.popAndInsert(insertQueue);
 //            printQueues(popQueue, insertQueue);
-            if ((popQueue.getTotalSum() < (twoQueueTotalSum / 2))
+            if (popQueue.getTotalSum() < (twoQueueTotalSum / 2)
                     && popQueue.getTotalSum() + insertQueue.getQueue().getFirst() == twoQueueTotalSum / 2) {
                 insertQueue.popAndInsert(popQueue);
                 return true;
@@ -119,11 +119,7 @@ class Solution {
         return false;
     }
 
-    public Boolean queueTotalSumIsGreaterThanTheGoal(QueueData popQueue, QueueData insertQueue, int twoQueueTotalSum) {
-        return false;
-    }
-
-    public Boolean elementEqualsGoalTotalSum(QueueData popQueue, QueueData insertQueue, int twoQueueTotalSum) {
+    public Boolean elementEqualsGoalTotalSum(QueueData popQueue, QueueData insertQueue, Long twoQueueTotalSum) {
         while (popQueue.getQueue().size() - 1 > 0) {
             popQueue.popAndInsert(insertQueue);
             if (insertQueue.getQueue().getLast() == twoQueueTotalSum / 2) {
@@ -138,34 +134,48 @@ class Solution {
         return false;
     }
 
+    public Boolean forAllCases(QueueData popQueue, QueueData insertQueue, Long twoQueueTotalSum) {
+        while (popQueue.getQueue().size() > 0) {
+            popQueue.popAndInsert(insertQueue);
+//            printQueues(popQueue, insertQueue);
+            if (popQueue.getTotalSum() == (twoQueueTotalSum / 2))
+                return true;
+            else if (popQueue.getTotalSum() > (twoQueueTotalSum / 2)) {
+                return forAllCases(insertQueue, popQueue, twoQueueTotalSum);
+            }
+        }
+        popQueue.restoreQueue();
+        insertQueue.restoreQueue();
+        return false;
+    }
 
     public int makeTheSumOfTwoQueueEqualWithTheLeastOperation(QueueData queue1, QueueData queue2) {
-        int twoQueueTotalSum = queue1.getTotalSum() + queue2.getTotalSum();
-//        System.out.println("Total Sum: " + twoQueueTotalSum);
-
+        Long twoQueueTotalSum = (long) (queue1.getTotalSum() + queue2.getTotalSum());
 
         List<Integer> operCounts = new ArrayList<>();
 
-        if (popOnlyOneQueue(queue1, queue2, twoQueueTotalSum) || popOnlyOneQueue(queue2, queue1, twoQueueTotalSum))
-//            return (int) (queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (popOnlyOneQueue(queue1, queue2, twoQueueTotalSum))
+            operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (popOnlyOneQueue(queue2, queue1, twoQueueTotalSum))
             operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
 
-        if (insertFirstOneElementFromOtherQueue(queue1, queue2, twoQueueTotalSum) || insertFirstOneElementFromOtherQueue(queue2, queue1, twoQueueTotalSum))
-//            return (int) (queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (insertFirstOneElementFromOtherQueue(queue1, queue2, twoQueueTotalSum))
+            operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (insertFirstOneElementFromOtherQueue(queue2, queue1, twoQueueTotalSum))
             operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
 
-        if (elementEqualsGoalTotalSum(queue1, queue2, twoQueueTotalSum) || elementEqualsGoalTotalSum(queue2, queue1, twoQueueTotalSum))
-//            return (int) (queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (elementEqualsGoalTotalSum(queue1, queue2, twoQueueTotalSum))
+            operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
+        if (elementEqualsGoalTotalSum(queue2, queue1, twoQueueTotalSum))
+            operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
+
+        if (forAllCases(queue1, queue2, twoQueueTotalSum))
             operCounts.add(queue1.getOperationCnt() + queue2.getOperationCnt());
 
         return operCounts.size() > 0 ? Collections.min(operCounts) : -1;
     }
 
     public int solution(int[] queue1, int[] queue2) {
-        int q1Sum = Arrays.stream(queue1).sum();
-        int q2Sum = Arrays.stream(queue2).sum();
-//        System.out.println("Queue1 Sum: " + q1Sum);
-//        System.out.println("Queue2 Sum: " + q2Sum);
 
         QueueData queue1Data = new QueueData(
                 new LinkedList<>(Arrays.asList(Arrays.stream(queue1).boxed().toArray(Integer[]::new))),
@@ -179,11 +189,6 @@ class Solution {
 
         int answer = makeTheSumOfTwoQueueEqualWithTheLeastOperation(queue1Data, queue2Data);
 
-        System.out.println(answer);
-
-//        queue1Data.print("Queue1"); queue2Data.print("Queue2"); System.out.println("===================================================================");
-
-
         return answer;
     }
 }
@@ -194,8 +199,9 @@ public class Main {
 
         Solution solutionClass = new Solution();
 
-        solutionClass.solution(new int[]{3, 2, 7, 2}, new int[]{4, 6, 5, 1});
-        solutionClass.solution(new int[]{1, 2, 1, 2}, new int[]{1, 10, 1, 2});
+        System.out.println(solutionClass.solution(new int[]{3, 2, 7, 2}, new int[]{4, 6, 5, 1}));
+        System.out.println(solutionClass.solution(new int[]{1, 2, 1, 2}, new int[]{1, 10, 1, 2}));
+        System.out.println(solutionClass.solution(new int[]{1, 1}, new int[]{1, 5}));
     }
 
 }
