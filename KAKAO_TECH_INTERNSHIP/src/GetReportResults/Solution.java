@@ -34,10 +34,10 @@ class Solution {
         }
 
 
-//        System.out.println("#" + this.getClass().getName());
-//        System.out.println(reporterInfoMap);
-//        System.out.println(reportedInfoMap);
-//        System.out.println(Arrays.toString(answer));
+        System.out.println("#" + this.getClass().getName());
+        System.out.println(reporterInfoMap);
+        System.out.println(reportedInfoMap);
+        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
@@ -45,6 +45,8 @@ class Solution {
     public static void main(String[] args) {
         Case testCase = new Case();
 //        testCase.all(new Solution(), new Solution_guide());
-        testCase.selectCase(new Solution(), new Solution_guide(), 1);
+//        testCase.selectCase(new Solution(), new Solution_guide(), 1);
+        testCase.all(new Solution(), new Solution_2nd_try());
+//        testCase.selectCase(new Solution(), new Solution_2nd_try(), 1);
     }
 }

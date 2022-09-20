@@ -89,13 +89,16 @@ public class Case {
     }
 
     public void all(Solution mainSolution, Solution compareSolution) {
-        caseList.forEach(solutionParam -> {
-            System.out.println("solution(" + Arrays.toString(solutionParam.id_list) + ", " + Arrays.toString(solutionParam.report) + "," + solutionParam.k + ")");
-            mainSolution.solution(solutionParam.id_list, solutionParam.report, solutionParam.k);
-            System.out.println();
-            compareSolution.solution(solutionParam.id_list, solutionParam.report, solutionParam.k);
-            System.out.println("===============================================================================");
-        });
+        for (int i = 0; i < caseList.size(); i++) {
+            selectCase(mainSolution, compareSolution, i + 1);
+        }
+//        caseList.forEach(solutionParam -> {
+//            System.out.println("solution(" + Arrays.toString(solutionParam.id_list) + ", " + Arrays.toString(solutionParam.report) + "," + solutionParam.k + ")");
+//            mainSolution.solution(solutionParam.id_list, solutionParam.report, solutionParam.k);
+//            System.out.println();
+//            compareSolution.solution(solutionParam.id_list, solutionParam.report, solutionParam.k);
+//            System.out.println("===============================================================================");
+//        });
     }
 
     public void selectCase(Solution mainSolution, Solution compareSolution, int caseNumber) {

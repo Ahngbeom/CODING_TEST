@@ -17,9 +17,13 @@ class Solution_2nd_try extends Solution{
 
         Arrays.stream(id_list).forEach(reporterId -> reportHashMap.put(
                 reporterId,
-                Arrays.stream(report).filter(reporter -> reporter.startsWith(reporterId)).map(reporter -> reporter.split(" ")[1]).collect(Collectors.toSet())
+                Arrays.stream(report)
+                        .filter(reporter -> reporter.startsWith(reporterId))
+                        .map(reporter -> reporter.split(" ")[1])
+                        .collect(Collectors.toSet())
         ));
-
+        System.out.println("#" + this.getClass().getName());
+        System.out.println(reportHashMap);
 
         reportHashMap.forEach((reporter, reportedIdSet) -> reportedIdSet.forEach(reportedId -> reportedInfoHashMap.put(reportedId, reportedInfoHashMap.getOrDefault(reportedId, 0) + 1)));
 
@@ -36,16 +40,10 @@ class Solution_2nd_try extends Solution{
             index.getAndIncrement();
         });
 
-//        System.out.println("#" + this.getClass().getName());
-//        System.out.println(reportHashMap);
-//        System.out.println(reportedInfoHashMap);
-//        System.out.println(Arrays.toString(answer));
+
+        System.out.println(reportedInfoHashMap);
+        System.out.println(Arrays.toString(answer));
 
         return answer;
-    }
-
-    public static void main(String[] args) {
-        Case testCase = new Case();
-        testCase.all(new Solution_2nd_try(), new Solution_guide());
     }
 }
