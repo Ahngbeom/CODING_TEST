@@ -1,21 +1,6 @@
-package GetReportResults;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-class SolutionParam {
-    public String[] id_list;
-    public String[] report;
-    public int k;
-
-
-    public SolutionParam(String[] id_list, String[] report, int k) {
-        this.id_list = id_list;
-        this.report = report;
-        this.k = k;
-    }
-}
 
 public class Case {
     List<SolutionParam> caseList;

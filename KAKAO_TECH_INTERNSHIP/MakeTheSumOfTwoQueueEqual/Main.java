@@ -1,5 +1,3 @@
-package MakeTheSumOfTwoQueueEqual;
-
 import java.util.*;
 
 class Solution {
@@ -44,7 +42,7 @@ class Solution {
         }
 
         public void restoreQueue() {
-            this.queue = (LinkedList<Integer>) originBackUp.clone();
+            this.queue = new LinkedList<>(originBackUp);
 //            this.getPopQueue().clear();
             this.totalSum = 0;
             this.queue.forEach(value -> this.totalSum += value);
@@ -61,7 +59,7 @@ class Solution {
         }
 
         public QueueData(LinkedList<Integer> queue, int totalSum) {
-            this.originBackUp = (LinkedList<Integer>) queue.clone();
+            this.originBackUp = new LinkedList<>(queue);
             this.queue = queue;
 //            this.popQueue = new LinkedList<>();
             this.totalSum = totalSum;

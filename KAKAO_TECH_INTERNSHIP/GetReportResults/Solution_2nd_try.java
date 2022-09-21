@@ -1,5 +1,3 @@
-package GetReportResults;
-
 import java.util.*;
 
 class Solution_2nd_try extends Solution {
