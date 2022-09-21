@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Coading_Test.iml" filepath="$PROJECT_DIR$/Coading_Test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_INCRUITMENT/KAKAO_BLIND_INCRUITMENT.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_INCRUITMENT/KAKAO_BLIND_INCRUITMENT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/KAKAO_BLIND_RECRUITMENT.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/KAKAO_BLIND_RECRUITMENT.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/KAKAO_TECH_INTERNSHIP.iml" filepath="$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/KAKAO_TECH_INTERNSHIP.iml" />
     </modules>
   </component>

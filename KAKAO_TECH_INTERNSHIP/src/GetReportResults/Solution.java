@@ -34,10 +34,10 @@ class Solution {
         }
 
 
-        System.out.println("#" + this.getClass().getName());
-        System.out.println(reporterInfoMap);
-        System.out.println(reportedInfoMap);
-        System.out.println(Arrays.toString(answer));
+//        System.out.println("#" + this.getClass().getName());
+//        System.out.println(reporterInfoMap);
+//        System.out.println(reportedInfoMap);
+//        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
