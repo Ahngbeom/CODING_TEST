@@ -10,7 +10,7 @@
 
 ### [2022 KAKAO TECH INTERNSHIP](KAKAO_BLIND_RECRUITMENT)
   - [신고 결과 받기](KAKAO_TECH_INTERNSHIP/GetReportResults) ❌❎✅
-  - [두 큐 합 같게 만들기](KAKAO_TECH_INTERNSHIP/MakeTheSumOfTwoQueueEqual) ❌🚧
+  - [두 큐 합 같게 만들기](KAKAO_TECH_INTERNSHIP/MakeTheSumOfTwoQueueEqual) ❌❌🚧
 
 ### [2022 KAKAO BLIND RECRUITMENT](KAKAO_BLIND_RECRUITMENT)
   - [성격 유형 검사하기](KAKAO_BLIND_RECRUITMENT/PersonalityTypeTest) ✅

@@ -46,7 +46,7 @@ stream을 활용하며 효율적으로 데이터를 추출하는 코드를 다�
 ```java
     import java.util.*;
     
-    class Solution_2nd_try extends Solution {
+    class Solution_2nd_try extends Solution_try1 {
     
         public int[] solution(String[] id_list, String[] report, int k) {
     
