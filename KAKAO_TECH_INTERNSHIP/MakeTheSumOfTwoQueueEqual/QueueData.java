@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class QueueData {
-    private LinkedList<Integer> originBackUp;
+    private final LinkedList<Integer> originBackUp;
 
     private LinkedList<Integer> queue;
 
@@ -22,15 +22,13 @@ public class QueueData {
         totalSum += elem;
     }
 
-    public Boolean popAndInsert(QueueData insertTarget) {
+    public void popAndInsert(QueueData insertTarget) {
         try {
             insertTarget.insert(this.pop());
             this.operationCnt += 1;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 
     public void restoreQueue() {
@@ -53,16 +51,13 @@ public class QueueData {
         this.operationCnt = 0;
     }
 
-    public QueueData(int[] queue, Long totalSum) {
+    public QueueData(int[] queue) {
         LinkedList<Integer> integerQueue = new LinkedList<>(Arrays.asList(Arrays.stream(queue).boxed().toArray(Integer[]::new)));
         this.originBackUp = new LinkedList<>(integerQueue);
         this.queue = integerQueue;
-        this.totalSum = totalSum;
+        this.totalSum = 0L;
+        integerQueue.forEach(elements -> this.totalSum += (long) elements);
         this.operationCnt = 0;
-    }
-
-    public LinkedList<Integer> getOriginBackUp() {
-        return originBackUp;
     }
 
     public LinkedList<Integer> getQueue() {
