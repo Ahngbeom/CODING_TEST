@@ -6,7 +6,7 @@ class Solution {
 
         Long parseN = Long.parseLong(n);
 
-        if (parseN < 2)
+        if (parseN < 2L)
             return false;
         for (Long i = 2L; i < parseN; i++) {
 //            System.out.println(n + " % " + i + " = " + n % i);
@@ -21,10 +21,10 @@ class Solution {
         int answer = 0;
 
         String notationResult = Integer.toString(n, k);
-//        System.out.println(notationResult);
+        System.out.println(notationResult);
 
         // "P" 처럼 소수 양쪽에 아무것도 없는 경우 및 P의 각 자릿수가 0이 포함되지 않을 경우
-        if (notationResult.matches("^0") && isPrime(notationResult))
+        if (!notationResult.matches("0") && isPrime(notationResult))
             ++answer;
 
         int firstZero = notationResult.indexOf("0");
@@ -63,5 +63,9 @@ class Solution {
 
         System.out.println(solutionClass.solution(437674, 3));
         System.out.println(solutionClass.solution(110011, 10));
+        System.out.println(solutionClass.solution(999, 9));
+        System.out.println(solutionClass.solution(64, 8));
+        System.out.println(solutionClass.solution(99999, 10));
+        System.out.println(solutionClass.solution(9990099, 10));
     }
 }
