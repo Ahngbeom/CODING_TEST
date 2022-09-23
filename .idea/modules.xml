@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Coading_Test.iml" filepath="$PROJECT_DIR$/Coading_Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/GetPrimeNumberByNotationK/GetPrimeNumberByNotationK.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/GetPrimeNumberByNotationK/GetPrimeNumberByNotationK.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/GetReportResults/GetReportResults.iml" filepath="$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/GetReportResults/GetReportResults.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/KAKAO_BLIND_RECRUITMENT.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/KAKAO_BLIND_RECRUITMENT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/KAKAO_TECH_INTERNSHIP.iml" filepath="$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/KAKAO_TECH_INTERNSHIP.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/MakeTheSumOfTwoQueueEqual/MakeTheSumOfTwoQueueEqual.iml" filepath="$PROJECT_DIR$/KAKAO_TECH_INTERNSHIP/MakeTheSumOfTwoQueueEqual/MakeTheSumOfTwoQueueEqual.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/PersonalityTypeTest/PersonalityTypeTest.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/PersonalityTypeTest/PersonalityTypeTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/RecommendNewId/RecommendNewId.iml" filepath="$PROJECT_DIR$/KAKAO_BLIND_RECRUITMENT/RecommendNewId/RecommendNewId.iml" />
