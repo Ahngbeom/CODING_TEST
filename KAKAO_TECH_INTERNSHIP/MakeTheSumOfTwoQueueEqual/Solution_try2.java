@@ -11,7 +11,7 @@ public class Solution_try2 extends Solution {
 
         QueueData q1 = new QueueData(queue1, q1TotalSum);
         QueueData q2 = new QueueData(queue2, q2TotalSum);
-        long limit = (long) q1.getQueue().size() * q2.getQueue().size();
+//        long limit = (long) q1.getQueue().size() * q2.getQueue().size();
 
 //        printQueues(q1, q2);
 
@@ -21,7 +21,7 @@ public class Solution_try2 extends Solution {
                 || q2.getQueue().stream().anyMatch(elements -> elements > totalSumTarget))
             return -1;
 
-        for (int i = 0; i < limit; i++) {
+        while (q1.getOperationCnt() <= q1.getOriginBackUp().size() || q2.getOperationCnt() <= q2.getOriginBackUp().size()) {
             if (q1.getTotalSum().equals(totalSumTarget) && q2.getTotalSum().equals(totalSumTarget)) {
                 return q1.getOperationCnt() + q2.getOperationCnt();
             }
