@@ -1,5 +1,4 @@
-public class Solution {
-
+public class Solution_try1 extends Solution {
     public boolean isPrime(String n) {
         if (n.isEmpty())
             return false;
@@ -9,7 +8,7 @@ public class Solution {
         if (parseN < 2L)
             return false;
         for (Long i = 2L; i < parseN; i++) {
-//            System.out.println(n + " % " + i + " = " + n % i);
+//            System.out.println(n + " % " + i + " = " + parseN % i);
             if (parseN % i == 0)
                 return false;
         }
@@ -59,13 +58,13 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solutionClass = new Solution();
+        Solution_try1 solutionClass = new Solution_try1();
 
         System.out.println(solutionClass.solution(437674, 3));
-//        System.out.println(solutionClass.solution(110011, 10));
-//        System.out.println(solutionClass.solution(999, 9));
-//        System.out.println(solutionClass.solution(64, 8));
-//        System.out.println(solutionClass.solution(99999, 10));
-//        System.out.println(solutionClass.solution(9990099, 10));
+        System.out.println(solutionClass.solution(110011, 10));
+        System.out.println(solutionClass.solution(999, 9));
+        System.out.println(solutionClass.solution(64, 8));
+        System.out.println(solutionClass.solution(99999, 10));
+        System.out.println(solutionClass.solution(9110099, 10));
     }
 }
