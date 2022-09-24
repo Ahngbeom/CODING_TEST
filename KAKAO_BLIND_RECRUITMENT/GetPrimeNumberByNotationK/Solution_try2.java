@@ -1,19 +1,16 @@
-public class Solution {
-
+public class Solution_try2 extends Solution {
     public boolean fastIsPrimeWithSqrt(String n) {
         if (n.isEmpty())
             return false;
 
-        Long parseN = Long.parseLong(n);
+        long parseN = Long.parseLong(n);
 
         if (parseN < 2L)
             return false;
-        for (Long i = 2L; i < parseN; i++) {
-//            System.out.println(n + " % " + i + " = " + n % i);
+        for (long i = 2L; i <= Math.sqrt(parseN); i++) {
             if (parseN % i == 0)
                 return false;
         }
-//        System.out.println("[" + n + "] is prime number !!!");
         return true;
     }
 
@@ -59,13 +56,13 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solutionClass = new Solution();
+        Solution_try2 solutionClass = new Solution_try2();
 
         System.out.println(solutionClass.solution(437674, 3));
-//        System.out.println(solutionClass.solution(110011, 10));
-//        System.out.println(solutionClass.solution(999, 9));
-//        System.out.println(solutionClass.solution(64, 8));
-//        System.out.println(solutionClass.solution(99999, 10));
-//        System.out.println(solutionClass.solution(9990099, 10));
+        System.out.println(solutionClass.solution(110011, 10));
+        System.out.println(solutionClass.solution(999, 9));
+        System.out.println(solutionClass.solution(64, 8));
+        System.out.println(solutionClass.solution(99999, 10));
+        System.out.println(solutionClass.solution(2, 3));
     }
 }
