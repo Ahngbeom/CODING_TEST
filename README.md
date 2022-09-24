@@ -15,4 +15,4 @@
 ### [2022 KAKAO BLIND RECRUITMENT](KAKAO_BLIND_RECRUITMENT)
   - [성격 유형 검사하기](KAKAO_BLIND_RECRUITMENT/PersonalityTypeTest) ✅
   - [신규 아이디 추천](KAKAO_BLIND_RECRUITMENT/RecommendNewId) ✅
-  - [k진수에서 소수 개수 구하기](KAKAO_BLIND_RECRUITMENT/GetPrimeNumberByNotationK) ❌❌✅
+  - [k진수에서 소수 개수 구하기](KAKAO_BLIND_RECRUITMENT/GetPrimeNumberByNotationK) ❌❌❌
