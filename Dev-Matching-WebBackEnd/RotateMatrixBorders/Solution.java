@@ -1,43 +1,42 @@
 import java.util.*;
 
+
+// Reference: https://dev-note-97.tistory.com/265
 class Solution {
 
-    public List<Integer> rotate(int[][] matrix, int[] queries) {
+    public int rotate(int[][] matrix, int[] queries) {
+        int first_row = queries[0] - 1;
+        int last_row = queries[2] - 1;
+        int first_col = queries[1] - 1;
+        int last_col = queries[3] - 1;
 
-        List<Integer> numberOnBorder = new ArrayList<>();
 
-        int temp = matrix[queries[0] - 1][queries[3] - 1];
-        for (int x = queries[3] - 1; x >= queries[1]; x--) {
-            matrix[queries[0] - 1][x] = matrix[queries[0] - 1][x - 1];
-            numberOnBorder.add(matrix[queries[0] - 1][x]);
+        int temp = matrix[first_row][first_col];
+        int min = temp;
+        for (int i = first_row; i < last_row; i++) {
+            matrix[i][first_col] = matrix[i + 1][first_col];
+            min = Math.min(min, matrix[i][first_col]);
         }
 
-        int temp2 = matrix[queries[2] - 1][queries[3] - 1];
-        for (int y = queries[2] - 1; y > queries[0]; y--) {
-            matrix[y][queries[3] - 1] = matrix[y - 1][queries[3] - 1];
-            numberOnBorder.add(matrix[y][queries[3] - 1]);
+        for (int i = first_col; i < last_col; i++) {
+            matrix[last_row][i] = matrix[last_row][i + 1];
+            min = Math.min(min, matrix[last_row][i]);
         }
-        matrix[queries[0]][queries[3] - 1] = temp;
-        numberOnBorder.add(matrix[queries[0]][queries[3] - 1]);
 
-        temp = matrix[queries[2] - 1][queries[0] - 1];
-        for (int x = queries[1] - 1; x < queries[3] - 1; x++) {
-            matrix[queries[2] - 1][x] = matrix[queries[2] - 1][x + 1];
-            numberOnBorder.add(matrix[queries[2] - 1][x]);
+        for (int i = last_row; i > first_row; i--) {
+            matrix[i][last_col] = matrix[i - 1][last_col];
+            min = Math.min(min, matrix[i][last_col]);
         }
-        matrix[queries[2] - 1][queries[3] - 1 - 1] = temp2;
-        numberOnBorder.add(matrix[queries[2] - 1][queries[3] - 1 - 1]);
 
-        for (int y = queries[0] - 1; y < queries[2] - 1; y++) {
-            matrix[y][queries[1] - 1] = matrix[y + 1][queries[1] - 1];
-            numberOnBorder.add(matrix[y][queries[1] - 1]);
+        for (int i = last_col; i > first_col; i--) {
+            matrix[first_row][i] = matrix[first_row][i - 1];
+            min = Math.min(min, matrix[first_row][i]);
         }
-        matrix[queries[2] - 1 - 1][queries[1] - 1] = temp;
-        numberOnBorder.add(matrix[queries[2] - 1 - 1][queries[1] - 1]);
+        matrix[first_row][first_col + 1] = temp;
 
-        printMatrix(matrix);
+//        printMatrix(matrix);
 
-        return numberOnBorder;
+        return min;
     }
 
     public void printMatrix(int[][] matrix) {
@@ -52,6 +51,7 @@ class Solution {
     }
 
     public int[] solution(int rows, int columns, int[][] queries) {
+        int[] answer;
 
         int[][] matrix = new int[rows][columns];
 
@@ -61,29 +61,28 @@ class Solution {
             }
         }
 
-        LinkedList<Integer> afterRotationMinValue = new LinkedList<>();
-
-        for (int[] query : queries) {
-            afterRotationMinValue.add(Collections.min(rotate(matrix, query)));
+        answer = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            answer[i] = rotate(matrix, queries[i]);
         }
 
-        return afterRotationMinValue.stream().mapToInt(Integer::intValue).toArray();
+        return answer;
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-//        System.out.println(Arrays.toString(solution.solution(
-//                6,
-//                6,
-//                new int[][]{{2, 2, 5, 4}, {3, 3, 6, 6}, {5, 1, 6, 3}}
-//        )));
+        System.out.println(Arrays.toString(solution.solution(
+                6,
+                6,
+                new int[][]{{2, 2, 5, 4}, {3, 3, 6, 6}, {5, 1, 6, 3}}
+        )));
 
-//        System.out.println(Arrays.toString(solution.solution(
-//                3,
-//                3,
-//                new int[][]{{1, 1, 2, 2}, {1, 2, 2, 3}, {2, 1, 3, 2}, {2, 2, 3, 3}}
-//        )));
+        System.out.println(Arrays.toString(solution.solution(
+                3,
+                3,
+                new int[][]{{1, 1, 2, 2}, {1, 2, 2, 3}, {2, 1, 3, 2}, {2, 2, 3, 3}}
+        )));
 
         System.out.println(Arrays.toString(solution.solution(
                 100,
@@ -91,10 +90,10 @@ class Solution {
                 new int[][]{{1,1,100,97}}
         )));
 
-//        System.out.println(Arrays.toString(solution.solution(
-//                6,
-//                6,
-//                new int[][]{{1, 1, 6, 6}}
-//        )));
+        System.out.println(Arrays.toString(solution.solution(
+                6,
+                6,
+                new int[][]{{1, 1, 6, 6}}
+        )));
     }
 }

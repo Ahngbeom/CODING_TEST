@@ -4,9 +4,9 @@
 
 🚧 : **작업 중...** \
 ✅ : **통과** \
-❎ : **수정 또는 다시 시도 후 통과** \
+❎ : **실패 원인 파악 후, 수정하여 통과** \
 ❌ : **실패** \
-**Ex. ❌❎✅: 첫번째 시도 실패, 두번째 시도 실패, 세번째 시도 통과, 두번째 수정 후 통과**
+**Ex. ❌❎✅: 첫번째 시도 실패, 두번째 시도 실패, 세번째 시도 통과, 두번째 시도의 코드 수정 후 통과**
 
 ### [2022 KAKAO TECH INTERNSHIP](KAKAO_BLIND_RECRUITMENT)
   - [신고 결과 받기](KAKAO_TECH_INTERNSHIP/GetReportResults) ❌❎✅
@@ -19,4 +19,4 @@
 
 ### [Dev-Matching Web-Backend](Dev-Matching-WebBackEnd)
  - [로또의 최고 순위와 최저 순위](Dev-Matching-WebBackEnd/Lotto_TopAndLowestRank) ✅
- - [행렬 테두리 회전하기](Dev-Matching-WebBackEnd/RotateMatrixBorders) ❌
+ - [행렬 테두리 회전하기](Dev-Matching-WebBackEnd/RotateMatrixBorders) ❌✅
