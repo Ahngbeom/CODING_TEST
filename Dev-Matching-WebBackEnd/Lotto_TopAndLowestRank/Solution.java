@@ -28,4 +28,5 @@ class Solution {
                 new int[]{31, 10, 45, 1, 6, 19}
         )));
     }
+
 }
