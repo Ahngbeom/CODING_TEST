@@ -16,3 +16,7 @@
   - [성격 유형 검사하기](KAKAO_BLIND_RECRUITMENT/PersonalityTypeTest) ✅
   - [신규 아이디 추천](KAKAO_BLIND_RECRUITMENT/RecommendNewId) ✅
   - [k진수에서 소수 개수 구하기](KAKAO_BLIND_RECRUITMENT/GetPrimeNumberByNotationK) ❌❌❌
+
+### [Dev-Matching Web-Backend](Dev-Matching-WebBackEnd)
+ - [로또의 최고 순위와 최저 순위](Dev-Matching-WebBackEnd/Lotto_TopAndLowestRank) ✅
+ - [행렬 테두리 회전하기](Dev-Matching-WebBackEnd/RotateMatrixBorders) ❌
