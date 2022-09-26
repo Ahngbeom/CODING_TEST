@@ -20,3 +20,5 @@
 ### [Dev-Matching Web-Backend](Dev-Matching-WebBackEnd)
  - [로또의 최고 순위와 최저 순위](Dev-Matching-WebBackEnd/Lotto_TopAndLowestRank) ✅
  - [행렬 테두리 회전하기](Dev-Matching-WebBackEnd/RotateMatrixBorders) ❌✅
+ - [헤비 유저가 소유한 장소](Dev-Matching-WebBackEnd/PlacesOwnedByHeavyUser) ✅
+ - [다단계 칫솔 판매](Dev-Matching-WebBackEnd/ToothBrush_Multi-LevelMarketing) ✅
