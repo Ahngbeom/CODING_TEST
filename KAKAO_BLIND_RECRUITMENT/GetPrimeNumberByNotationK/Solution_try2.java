@@ -9,11 +9,11 @@ public class Solution_try2 extends Solution {
             return false;
         for (long i = 2L; i <= Math.sqrt(parseN); i++) {
             if (parseN % i == 0) {
-                System.out.println(parseN + " = " + i + " * " + parseN / i);
+//                System.out.println(parseN + " = " + i + " * " + parseN / i);
                 return false;
             }
         }
-        System.out.println(parseN + " is Prime Number");
+//        System.out.println(parseN + " is Prime Number");
         return true;
     }
 
@@ -21,7 +21,7 @@ public class Solution_try2 extends Solution {
         int answer = 0;
 
         String notationResult = Integer.toString(n, k);
-        System.out.println(notationResult);
+//        System.out.println(notationResult);
 
         // "P" 처럼 소수 양쪽에 아무것도 없는 경우 및 P의 각 자릿수가 0이 포함되지 않을 경우
         if (!notationResult.contains("0") && fastIsPrimeWithSqrt(notationResult))
@@ -68,7 +68,7 @@ public class Solution_try2 extends Solution {
 //        System.out.println(solutionClass.solution(99999, 10));
 //        System.out.println(solutionClass.solution(2, 3));
 
-        int n = 999999;
+        int n = 1;
 
         System.out.println(solutionClass.solution(n, 3));
         System.out.println(solutionClass.solution(n, 4));
