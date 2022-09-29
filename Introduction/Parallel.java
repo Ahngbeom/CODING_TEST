@@ -9,7 +9,9 @@ public class Parallel {
 
         for (int i = 0; i < dots.length - 1; i++) {
             for (int j = i + 1; j < dots.length; j++) {
+                // 두 점을 이은 직선의 기울기
                 double slope = Math.abs((double) (dots[j][1] - dots[i][1]) / (double) (dots[j][0] - dots[i][0]));
+                // 두 점을 이은 직선의 y 절편
                 double y_intercept =  ((double) (dots[j][1]) - slope * dots[j][0]);
                 if (straightInfoMap.containsKey(slope) && straightInfoMap.get(slope) != y_intercept)
                     return 1;
