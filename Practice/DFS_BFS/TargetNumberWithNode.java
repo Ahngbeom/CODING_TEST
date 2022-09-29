@@ -50,34 +50,27 @@ public class TargetNumberWithNode {
         }
     }
 
-    public int dfs(int[] numbers, int target, int depth, int sum) {
-        System.out.println("depth: " + depth);
-        System.out.println("sum: " + sum);
-        if (depth == numbers.length) {
+    public int dfs(Node node, int target, int sum) {
+        if (node == null) {
             if (target == sum)
                 return 1;
             else
                 return 0;
         }
-        return dfs(numbers, target, depth + 1, sum + numbers[depth])
-                + dfs(numbers, target, depth + 1, sum - numbers[depth]);
+        return dfs(node.getNext(), target, sum + node.getValue())
+                + dfs(node.getNext(), target, sum - node.getValue());
     }
 
 
     public int solution(int[] numbers, int target) {
-        int answer = 0;
-
-        Node node = null;
+        Node node;
 
         node = new Node(numbers[0]);
         for (int i = 1; i < numbers.length; i++) {
             node.getLastNode().addLast(new Node(numbers[i]));
         }
 
-        System.out.println(node);
-
-
-        return dfs(numbers, target, 0, 0);
+        return dfs(node, target, 0);
     }
 
     public static void main(String[] args) {
