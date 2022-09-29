@@ -1,67 +1,83 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.Queue;
 
+
+// Reference: https://yline.tistory.com/48
 public class ShortestDistanceOnTheGameMap {
 
-	public void printMap(int[][] maps, int[] current) {
-		System.out.println("----------------------------------");
-		for (int y = 0; y < maps.length; y++) {
-			System.out.print("|");
-			for (int x = 0; x < maps[y].length; x++) {
-				if (x == current[0] && y == current[1])
-					System.out.printf("%c|", 'C');
-				else
-					System.out.printf("%d|", maps[y][x]);
-			}
-			System.out.println();
-		}
-		System.out.println("----------------------------------");
-	}
+    public final int[] UP = {0, 1};
+    public final int[] RIGHT = {1, 0};
+    public final int[] DOWN = {0, -1};
+    public final int[] LEFT = {-1, 0};
 
-	public int dfs(int[][] maps, int x, int y, int distance, Set<String> log) throws InterruptedException {
-		Thread.sleep(1000);
+    public final int[][] SHIFT = {UP, RIGHT, DOWN, LEFT};
 
-//		System.out.println(x + "/" + maps[0].length + ", " + y + "/" + maps.length
-//				+ "(distance: " + distance
-//				+ ", log: " + log[0] + ", " + log[1] + ")");
+    static class Coordinate {
+        int x;
+        int y;
 
-		if (x == maps[0].length && y == maps.length)
-			return distance;
+        public Coordinate(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
 
-		if (x < 0 || y < 0)
-			return 0;
-		if (x > maps[0].length || y > maps.length)
-			return 0;
-		if (maps[y][x] == 0)
-			return 0;
+        @Override
+        public String toString() {
+            return "Coordinate{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
+    }
 
-		String current_log = x + " " + y;
-		if (log.contains(current_log))
-			return 0;
-		else
-			log.add(current_log);
+    public void printMap(int[][] maps, int[] current) {
+        System.out.println("----------------------------------");
+        for (int y = 0; y < maps.length; y++) {
+            System.out.print("|");
+            for (int x = 0; x < maps[y].length; x++) {
+                if (x == current[0] && y == current[1])
+                    System.out.printf("%c|", 'C');
+                else
+                    System.out.printf("%d|", maps[y][x]);
+            }
+            System.out.println();
+        }
+        System.out.println("----------------------------------");
+    }
 
-		printMap(maps, new int[]{x, y});
+    public int solution(int[][] maps) {
+        int answer;
+        Queue<Coordinate> queue = new LinkedList<>();
 
-		return dfs(maps, x + maps[y][x], y, distance + maps[y][x], new HashSet<>(log))
-				+ dfs(maps, x, y + maps[y][x], distance + maps[y][x], log)
-				+ dfs(maps, x - maps[y][x], y, distance + maps[y][x], log)
-				+ dfs(maps, x, y - maps[y][x], distance + maps[y][x], log);
-	}
+        queue.offer(new Coordinate(0, 0));
 
-	public int solution(int[][] maps) throws InterruptedException {
+        while (!queue.isEmpty()) {
+            Coordinate current = queue.poll();
+            for (int i = 0; i < 4; i++) {
+                int nx = current.x + SHIFT[i][0];
+                int ny = current.y + SHIFT[i][1];
+                if (nx >= 0 && nx < maps[0].length
+                    && ny >= 0 && ny < maps.length
+                    && maps[ny][nx] == 1) {
+                    maps[ny][nx] += maps[current.y][current.x];
+                    queue.add(new Coordinate(nx, ny));
 
-		Set<String> distances = new HashSet<>();
+//                    printMap(maps, new int[]{nx, ny});
+                }
+            }
+        }
 
-//		return 0;
-		return dfs(maps, 0, 0, 0, distances);
-	}
+        answer = maps[maps.length - 1][maps[0].length - 1];
+        if (answer == 1)
+            return -1;
+        return answer;
+    }
 
-	public static void main(String[] args) throws InterruptedException {
-		ShortestDistanceOnTheGameMap gameMap = new ShortestDistanceOnTheGameMap();
+    public static void main(String[] args) {
+        ShortestDistanceOnTheGameMap gameMap = new ShortestDistanceOnTheGameMap();
 
-		System.out.println(gameMap.solution(
-				new int[][]{{1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 1, 1, 1}, {1, 1, 1, 0, 1}, {0, 0, 0, 0, 1}}
-		));
-	}
+        System.out.println(gameMap.solution(
+                new int[][]{{1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 1, 1, 1}, {1, 1, 1, 0, 1}, {0, 0, 0, 0, 1}}
+        ));
+    }
 }
