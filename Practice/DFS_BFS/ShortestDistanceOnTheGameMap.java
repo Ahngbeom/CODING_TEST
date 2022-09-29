@@ -62,7 +62,7 @@ public class ShortestDistanceOnTheGameMap {
                     maps[ny][nx] += maps[current.y][current.x];
                     queue.add(new Coordinate(nx, ny));
 
-//                    printMap(maps, new int[]{nx, ny});
+                    printMap(maps, new int[]{nx, ny});
                 }
             }
         }
