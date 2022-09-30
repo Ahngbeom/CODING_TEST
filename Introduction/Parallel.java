@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
+// Reference: https://mathbang.net/46, https://mathbang.net/443, https://jwmath.tistory.com/415, https://m.blog.naver.com/oohyeat05/222137716947
 public class Parallel {
 
     public int solution(int[][] dots) {
