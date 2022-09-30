@@ -15,28 +15,13 @@ class Solution {
             this.profit = 0L;
         }
 
-        public String getRecommendedMe() {
-            return recommendedMe;
-        }
-
-        public void setRecommendedMe(String recommendedMe) {
-            this.recommendedMe = recommendedMe;
-        }
-
         public Set<String> getRecommendedMemberList() {
             return recommendedMemberList;
         }
 
-        public void setRecommendedMemberList(Set<String> recommendedMemberList) {
-            this.recommendedMemberList = recommendedMemberList;
-        }
 
         public Long getProfit() {
             return profit;
-        }
-
-        public void setProfit(Long profit) {
-            this.profit = profit;
         }
 
         public void addProfit(Long profit) {
