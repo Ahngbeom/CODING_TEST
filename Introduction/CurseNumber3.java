@@ -1,7 +1,7 @@
 public class CurseNumber3 {
 
     public int solution(int n) {
-        int answer = 1;
+        int answer = 0;
 
         for (int i = 1; i <= n; i++) {
             answer++;
@@ -17,6 +17,8 @@ public class CurseNumber3 {
         CurseNumber3 curseNumber3 = new CurseNumber3();
 
         System.out.println(curseNumber3.solution(9));
+        System.out.println(curseNumber3.solution(15));
+        System.out.println(curseNumber3.solution(40));
     }
 
 }
